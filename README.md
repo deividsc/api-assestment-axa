@@ -45,7 +45,7 @@ Api for search clients and policies linked to clients
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | name	  | String	  |  <p>Client name linked to policies</p>                    |
-| begin			| Number			| **optional** <p>Page number.</p>							|
+| begin			| Number			| **optional** <p>Pagination begin number.</p>							|
 | end			| Number			| **optional** <p>Amount of returned items.</p>				
 
 ## Retrive Client Data By Policie Number
