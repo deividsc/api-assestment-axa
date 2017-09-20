@@ -1,5 +1,4 @@
 var express = require('express');
-var request = require('request');
 //import {getClientById, getClientByUsername} from './services/clients';
 var clientsService = require('./services/clients');
 var policiesService = require('./services/policies');
@@ -40,13 +39,17 @@ app.get('/clients/by-name/:name', function (req, res) {
  * @api {get} /policies/by-name/:name Search Policies by  client name
  * @apiName SearchPoliciesByName
  * @apiGroup Policie
- * @apiParam {String} id client id 
+ * @apiParam {String} name client name linked to policies 
+ * @apiParam {Number} begin begin pagination
+ * @apiParam {Number} end end pagination
  * @apiSuccess {Object} client client data
  * @apiError {Number} error Error code
  */
 
 app.get('/policies/by-name/:name', function (req, res) {
-  policiesService.getPoliciesByClientName(req.params.name).then(policies => {
+  let begin = req.query.begin && parseInt(req.query.begin)? parseInt(req.query.begin):0;
+  let end = req.query.end && parseInt(req.query.end)? parseInt(req.query.end):30;
+  policiesService.getPoliciesByClientName(req.params.name, begin, end).then(policies => {
     res.json(policies);
   })
     .catch(error => res.sendStatus(error))
