@@ -1,0 +1,16 @@
+{
+  "name": "api-rest-node",
+  "version": "1.0.0",
+  "description": "coso",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "expressjs": "^1.0.1",
+    "request": "^2.81.0"
+  }
+}
